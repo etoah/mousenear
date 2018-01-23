@@ -11,6 +11,8 @@ export default class MouseNear {
    *    distance
    *    offsetX
    *    offsetY
+   *    throttleTime
+   *    persistent
    */
   constructor (options) {
     this.options = options

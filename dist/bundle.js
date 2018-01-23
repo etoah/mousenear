@@ -171,6 +171,8 @@ var MouseNear = function () {
    *    distance
    *    offsetX
    *    offsetY
+   *    throttleTime
+   *    persistent
    */
   function MouseNear(options) {
     _classCallCheck(this, MouseNear);
@@ -217,7 +219,7 @@ var MouseNear = function () {
           }
         });
         that.elementList = restList;
-      }, 100);
+      }, that.options.throttleTime || 100);
       this.eventCallback = eventCallback;
       document.addEventListener('mousemove', eventCallback);
     }
@@ -237,7 +239,7 @@ var MouseNear = function () {
 
 exports.default = MouseNear;
 function calculateElementBounds(elementRect, options) {
-  var distance = options.distance || 0;
+  var distance = options.distance || 40;
   if (isNaN(distance)) {
     throw new TypeError('options.distance was expecting a number, was given: ' + _typeof(options.distance));
   } else {
