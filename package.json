@@ -1,0 +1,31 @@
+{
+  "name": "mouse-near",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "webpack -w | http-server . -c-1 -o http://localhost:8080/test/"
+  },
+  "homepage": "https://github.com/etoah/mousenear#readme",
+  "keywords": [],
+  "author": "lucienduan",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/etoah/mousenear.git"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^3.19.0",
+    "eslint-config-tencentvfe": "^0.0.1",
+    "http-server": "^0.11.1",
+    "webpack": "^3.10.0"
+  }
+}

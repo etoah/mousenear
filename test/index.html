@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+    }
+
+    #root {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .top {
+      width: 100vw;
+      height: 100px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    p {
+      width: 250px;
+      text-align: center;
+    }
+
+    .el {
+      background-color: red;
+      color: white;
+      font-size: 2rem;
+      width: 250px;
+      height: 250px;
+    }
+
+    .el.active {
+      background-color: green;
+    }
+  </style>
+  <title>
+    test
+  </title>
+  <script src="/dist/bundle.js"></script>
+</head>
+
+<body>
+  <div class="top">
+    <p>
+      Normal
+    </p>
+    <p>
+      40px offset outside the element
+    </p>
+  </div>
+  <div id="root">
+    <div class="element-1 el">
+      Not Triggered
+    </div>
+    <div class="element-2 el">
+      Not Triggered
+    </div>
+  </div>
+</body>
+<script>
+
+  var mouseNear = new MouseNear({
+      distance: 40
+    })
+    window.mouseNear = mouseNear
+  window.addEventListener('load', function () {
+    mouseNear.add('.element-1', () => {
+      console.log('one');
+      document.querySelector('.element-1').innerHTML = 'Triggered';
+      document.querySelector('.element-1').classList.add('active');
+    });
+
+    mouseNear.add('.element-2', () => {
+      console.log('two');
+      document.querySelector('.element-2').innerHTML = 'Triggered';
+      document.querySelector('.element-2').classList.add('active');
+    });
+  });
+</script>
+
+</html>
