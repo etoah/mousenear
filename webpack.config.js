@@ -1,7 +1,8 @@
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: 'dist/bundle.js'
+    filename: 'dist/bundle.js',
+    libraryTarget: 'umd'
   },
   module: {
     rules: [
